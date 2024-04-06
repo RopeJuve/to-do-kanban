@@ -1,13 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>Kanban Board</title>
     <script type="module" src="./index.js" defer></script>
-</head>
-<body>
-    <h1 class="text-center font-bold">Kanban boards</h1>
-</body>
+  </head>
+  <body
+    class="bg-[#20212C] font-Jakarta relative overflow-x-hidden md:grid md:grid-cols-2 md:h-[100vh] md:grid-rows-2"
+  >
+    <aside
+      class="hidden md:block md:bg-[#2B2C37] md:border-r-[0.2px] md:row-start-1 md:row-end-[3] md:border-solid md:border-[#3E3F4E]"
+    >
+      <div class="flex items-center gap-4 px-[1.4rem] py-[1.6rem]">
+        <div class="cursor-pointer">
+          <img src="../assets/logo-mobile.svg" alt="logo" />
+        </div>
+        <h1 class="font-bold text-white text-3xl leading-7 tracking-wide">
+          kanban
+        </h1>
+      </div>
+      <div class="flex flex-col justify-between h-[90%]">
+        <div class="flex flex-col gap-[1.187rem]">
+          <h6
+            class="text-white uppercase text-[0.8rem] pt-[1.5rem] pl-[1.5rem] tracking-widest opacity-50"
+          >
+            all boards (1)
+          </h6>
+          <ul>
+            <li
+              class="flex gap-[0.75rem] items-center cursor-pointer pl-[1.5rem] py-[1rem] w-[90%] bg-[#635FC7] rounded-r-[2.5rem] mb-[1.187rem] hover:bg-white hover:text-[#635FC7] transition-all duration-300 ease-in-out"
+            >
+              <img src="../assets/icon-board.svg" alt="board" />
+              <button
+                class="font-bold text-white tracking-wide hover:text-[#635FC7] transition-all duration-300 ease-in-out"
+              >
+                Platform Launch
+              </button>
+            </li>
+            <li
+              class="flex gap-[0.75rem] items-center pl-[1.5rem] py-[1rem] w-[90%] cursor-pointer"
+            >
+              <img src="../assets/icon-board copy.svg" alt="board" />
+              <button class="font-bold text-[#635FC7] tracking-wide">
+                + Create New Board
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div
+          id="hide-sidebar"
+          class="flex gap-[0.75rem] items-center pl-[1.5rem] py-[1rem] w-[90%] cursor-pointer"
+        >
+          <img src="../assets/icon-hide-sidebar.svg" alt="hide" />
+          <button class="font-bold text-white tracking-wide opacity-50">
+            Hide Sidebar
+          </button>
+        </div>
+      </div>
+    </aside>
+    <nav
+      class="bg-[#2B2C37] p-[1.4rem] flex justify-between md:border-b-[0.2px] md:border-solid md:border-[#3E3F4E]"
+    >
+      <div class="flex items-center gap-4">
+        <div class="md:hidden">
+          <img src="../assets/logo-mobile.svg" alt="logo" />
+        </div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold text-white text-xl leading-7 tracking-wide">
+            Platform Launch
+          </h1>
+          <img
+            class="cursor-pointer"
+            src="../assets/icon-chevron-down.svg"
+            alt="arrow"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-[1rem] md:gap-[1.5rem]">
+        <button
+          class="w-[3rem] h-[2rem] bg-[#635FC7] flex items-center justify-center rounded-2xl disabled:opacity-25 md:w-[164px] md:h-[48px] md:gap-2 md:rounded-3xl hover:bg-[#A8A4FF] transition-all duration-300 ease-in-out"
+        >
+          <img src="../assets/icon-add-task-mobile.svg" alt="bell" />
+          <span
+            class="hidden md:block md:font-bold md:text-white md:tracking-wide"
+            >Add New Task</span
+          >
+        </button>
+        <img
+          class="cursor-pointer"
+          src="../assets/icon-vertical-ellipsis.svg"
+          alt="dots"
+        />
+      </div>
+    </nav>
+    <main
+      class="grid grid-cols-3 gap-[1.5rem] overflow-hidden overflow-x-scroll md:row-start-2 md:row-end-[-1]"
+    >
+      <div class="p-[1.5rem] w-[280px]">
+        <div class="flex gap-[0.75rem] items-center">
+          <div class="w-[15px] h-[15px] rounded-full bg-[#49C4E5]"></div>
+          <span class="text-white opacity-50 uppercase tracking-widest"
+            >todo (4)</span
+          >
+        </div>
+        <div></div>
+      </div>
+      <div class="p-[1.5rem] w-[280px]">
+        <div class="flex gap-[0.75rem] items-center">
+          <div class="w-[15px] h-[15px] rounded-full bg-[#49C4E5]"></div>
+          <span class="text-white opacity-50 uppercase tracking-widest"
+            >todo (4)</span
+          >
+        </div>
+        <div></div>
+      </div>
+    </main>
+  </body>
 </html>
