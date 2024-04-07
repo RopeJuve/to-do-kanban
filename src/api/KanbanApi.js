@@ -9,6 +9,9 @@ export default class KanbanAPI {
     static addTaskToColumn(columnName, content) {
         const board = read();
         const column = board.find((column) => column.name === columnName);
+        if(content === undefined || Object.keys(content).length === 0) {
+            return;
+        }
         const task = {
             id: Math.floor(Math.random() * 1000000),
             content: {

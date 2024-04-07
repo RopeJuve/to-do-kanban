@@ -8,7 +8,7 @@
     <script type="module" src="./index.js" defer></script>
   </head>
   <body
-    class="bg-[#20212C] font-Jakarta relative overflow-x-hidden md:grid md:grid-cols-2 md:h-[100vh] md:grid-rows-2"
+    class="bg-[#20212C] h-[100vh] overflow-y-hidden grid grid-rows-2 font-Jakarta relative overflow-x-hidden md:grid md:grid-cols-2 md:h-[100vh] md:grid-rows-2"
   >
     <aside
       class="hidden md:block md:bg-[#2B2C37] md:border-r-[0.2px] md:row-start-1 md:row-end-[3] md:border-solid md:border-[#3E3F4E]"
@@ -96,25 +96,44 @@
       </div>
     </nav>
     <main
-      class="grid grid-cols-3 gap-[1.5rem] overflow-hidden overflow-x-scroll md:row-start-2 md:row-end-[-1]"
+      class="grid grid-cols-3 gap-[1.5rem] p-[1.5rem] overflow-hidden overflow-x-scroll md:row-start-2 md:row-end-[-1]"
     >
-      <div class="p-[1.5rem] w-[280px]">
+      <div id="column-todo" class="w-[280px] flex flex-col gap-[1.5rem]">
         <div class="flex gap-[0.75rem] items-center">
           <div class="w-[15px] h-[15px] rounded-full bg-[#49C4E5]"></div>
           <span class="text-white opacity-50 uppercase tracking-widest"
             >todo (4)</span
           >
         </div>
-        <div></div>
+        <div id="task-container" class="flex flex-col gap-[1.25rem]">
+          <!-- <div class="px-[1rem] py-[1.5rem] bg-[#2B2C37] rounded-[0.5rem]">
+            <h2 class="text-white font-[600] tracking-wide mb-[0.5rem]">
+              Build UI for onboarding flow
+            </h2>
+            <span class="text-white opacity-50 text-[0.875rem]"
+              >0 of 3 subtasks</span
+            >
+          </div> -->
+        </div>
       </div>
-      <div class="p-[1.5rem] w-[280px]">
+      <div class="w-[280px] flex flex-col gap-[1.5rem]">
         <div class="flex gap-[0.75rem] items-center">
-          <div class="w-[15px] h-[15px] rounded-full bg-[#49C4E5]"></div>
+          <div
+            class="w-[15px] h-[15px] rounded-full bg-[#49C4E5] cursor-pointer"
+          ></div>
           <span class="text-white opacity-50 uppercase tracking-widest"
             >todo (4)</span
           >
         </div>
-        <div></div>
+
+        <!-- <div class="px-[1rem] py-[1.5rem] bg-[#2B2C37] rounded-[0.5rem]">
+          <h2 class="text-white font-[600] tracking-wide mb-[0.5rem]">
+            Build UI for onboarding flow
+          </h2>
+          <span class="text-white opacity-50 text-[0.875rem]"
+            >0 of 3 subtasks</span
+          >
+        </div> -->
       </div>
     </main>
   </body>

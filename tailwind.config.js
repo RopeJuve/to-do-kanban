@@ -7,7 +7,7 @@ module.exports = {
         'Jakarta': ['Jakarta', 'sans-serif'],
       },
       gridTemplateColumns:{
-        '2': '30% 70%',
+        '2': 'minmax(260px, 300px) 1fr',
         '3': 'repeat(3, 280px)',
       },
       gridTemplateRows:{
