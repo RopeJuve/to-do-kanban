@@ -900,12 +900,20 @@ video {
     height: 48px;
   }
 
+  .md\:w-0{
+    width: 0px;
+  }
+
   .md\:w-\[164px\]{
     width: 164px;
   }
 
+  .md\:grid-cols-1{
+    grid-template-columns: 0px auto;
+  }
+
   .md\:grid-cols-2{
-    grid-template-columns: minmax(260px, 300px) 1fr;
+    grid-template-columns: minmax(260px, 300px) auto;
   }
 
   .md\:grid-rows-2{
@@ -918,6 +926,10 @@ video {
 
   .md\:gap-\[1\.5rem\]{
     gap: 1.5rem;
+  }
+
+  .md\:overflow-hidden{
+    overflow: hidden;
   }
 
   .md\:rounded-3xl{
