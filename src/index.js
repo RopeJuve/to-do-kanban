@@ -7,8 +7,9 @@ const showSidebar = document.querySelector('#show-side-bar');
 const boardContainer = document.querySelector('#board-container');
 const navBar = document.querySelector('#nav-bar');
 
-/* KanbanAPI.addTaskToColumn('In Progress', { title: 'Create a new task', subTasks: [{ title: 'Create a new task' }] }); */
+//KanbanAPI.addTaskToColumn('ToDo', { title: 'Create a new task', subTasks: [{ title: 'Create a new task' }] });
 const board = KanbanAPI.getBoard();
+console.log(board)
 
 
 board.forEach((column) => {
@@ -20,26 +21,21 @@ const [todo, inProgress, done] = board;
 const todoTaskContainer = document.querySelector('#task-container-ToDo');
 const inProgressTaskContainer = document.querySelector('#task-container-InProgress');
 const doneTaskContainer = document.querySelector('#task-container-Done');
-todo.forEach((task) => {
+todo.tasks.forEach((task) => {
     const card = createCard(task);
     todoTaskContainer.appendChild(card);
 });
 
-inProgress.forEach((task) => {
+inProgress.tasks.forEach((task) => {
     const card = createCard(task);
     inProgressTaskContainer.appendChild(card);
 });
 
-done.forEach((task) => {
+done.tasks.forEach((task) => {
     const card = createCard(task);
     doneTaskContainer.appendChild(card);
 });
-/* for (const taskContainer of taskContainers) {
-    column.tasks.forEach((task) => {
-        const card = createCard(task);
-        taskContainer.appendChild(card);
-    });
-} */
+
 
 
 hideSidebar.addEventListener('click', () => {
