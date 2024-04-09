@@ -1,4 +1,7 @@
 export default class KanbanAPI {
+    static getBoard() {
+        return read();
+    }
     //Get tasks by column name
     static getTasksByColumn(name) {
         const column = read().find((column) => column.name === name);
@@ -9,7 +12,7 @@ export default class KanbanAPI {
     static addTaskToColumn(columnName, content) {
         const board = read();
         const column = board.find((column) => column.name === columnName);
-        if(content === undefined || Object.keys(content).length === 0) {
+        if (content === undefined || Object.keys(content).length === 0) {
             return;
         }
         const task = {
@@ -57,11 +60,11 @@ export default class KanbanAPI {
 }
 
 const read = () => JSON.parse(localStorage.getItem('board')) || [{
-    name: 'To Do',
+    name: 'ToDo',
     tasks: [],
 },
 {
-    name: 'In Progress',
+    name: 'InProgress',
     tasks: [],
 },
 {

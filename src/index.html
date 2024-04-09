@@ -8,10 +8,13 @@
     <script type="module" src="./index.js" defer></script>
   </head>
   <body
-    class="bg-[#20212C] h-[100vh] overflow-y-hidden grid grid-rows-2 font-Jakarta relative overflow-x-hidden md:grid md:grid-cols-2 md:h-[100vh] md:grid-rows-2"
+    class="bg-[#20212C] h-[100vh] overflow-y-hidden font-Jakarta relative overflow-x-hidden"
   >
-    <aside
-      class="hidden md:block md:bg-[#2B2C37] md:border-r-[0.2px] md:row-start-1 md:row-end-[3] md:border-solid md:border-[#3E3F4E]"
+  <button id="show-side-bar" class="hidden absolute bottom-[1rem] left-0 z-[100] bg-[#635FC7] p-[1rem]  rounded-r-[2.5rem]">
+    <img src="../assets/icon-show-sidebar.svg"  alt="show side">
+  </button>
+    <aside id="side-bar"
+      class="hidden md:fixed md:top-0 md:left-0 md:h-[100vh] md:w-[300px] md:block md:bg-[#2B2C37] md:border-r-[0.2px] md:border-solid md:border-[#3E3F4E] md:overflow-x-hidden"
     >
       <div class="flex items-center gap-4 px-[1.4rem] py-[1.6rem]">
         <div class="cursor-pointer">
@@ -50,7 +53,7 @@
           </ul>
         </div>
         <div
-          id="hide-sidebar"
+          id="hide-side-bar"
           class="flex gap-[0.75rem] items-center pl-[1.5rem] py-[1rem] w-[90%] cursor-pointer"
         >
           <img src="../assets/icon-hide-sidebar.svg" alt="hide" />
@@ -61,7 +64,8 @@
       </div>
     </aside>
     <nav
-      class="bg-[#2B2C37] p-[1.4rem] flex justify-between md:border-b-[0.2px] md:border-solid md:border-[#3E3F4E]"
+    id="nav-bar"
+      class="bg-[#2B2C37] p-[1.4rem] flex justify-between md:border-b-[0.2px] md:border-solid md:border-[#3E3F4E] md:ml-[300px]"
     >
       <div class="flex items-center gap-4">
         <div class="md:hidden">
@@ -96,9 +100,10 @@
       </div>
     </nav>
     <main
-      class="grid grid-cols-3 gap-[1.5rem] p-[1.5rem] overflow-hidden overflow-x-scroll md:row-start-2 md:row-end-[-1]"
+    id="board-container"
+      class="grid grid-cols-3 h-[calc(100vh-76px)] gap-[1.5rem] p-[1.5rem] overflow-hidden overflow-x-scroll md:ml-[300px]"
     >
-      <div id="column-todo" class="w-[280px] flex flex-col gap-[1.5rem]">
+      <!-- <div id="column-todo" class="w-[280px] flex flex-col gap-[1.5rem]">
         <div class="flex gap-[0.75rem] items-center">
           <div class="w-[15px] h-[15px] rounded-full bg-[#49C4E5]"></div>
           <span class="text-white opacity-50 uppercase tracking-widest"
@@ -106,17 +111,7 @@
           >
         </div>
         <div id="task-container" class="flex flex-col gap-[1.25rem]"></div>
-      </div>
-      <div class="w-[280px] flex flex-col gap-[1.5rem]">
-        <div class="flex gap-[0.75rem] items-center">
-          <div
-            class="w-[15px] h-[15px] rounded-full bg-[#49C4E5] cursor-pointer"
-          ></div>
-          <span class="text-white opacity-50 uppercase tracking-widest"
-            >todo (4)</span
-          >
-        </div>
-      </div>
+      </div> -->
     </main>
   </body>
 </html>
