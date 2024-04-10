@@ -1,23 +1,25 @@
 import KanbanAPI from "./api/KanbanApi.js";
 import { createCard } from "./view/Card.js"
+import { createCardModal } from "./view/CardModal.js";
 import { createColumn } from "./view/Column.js";
 const sidebar = document.querySelector('#side-bar');
 const hideSidebar = document.querySelector('#hide-side-bar');
 const showSidebar = document.querySelector('#show-side-bar');
 const boardContainer = document.querySelector('#board-container');
+/* const addTaskBtn = document.querySelector('#add-task'); */
 const navBar = document.querySelector('#nav-bar');
 
 //KanbanAPI.addTaskToColumn('ToDo', { title: 'Create a new task', subTasks: [{ title: 'Create a new task' }] });
 const board = KanbanAPI.getBoard();
 console.log(board)
 
+const [todo, inProgress, done] = board;
 
 board.forEach((column) => {
     const createdColumn = createColumn(column);
     boardContainer.appendChild(createdColumn);
 }
 );
-const [todo, inProgress, done] = board;
 const todoTaskContainer = document.querySelector('#task-container-ToDo');
 const inProgressTaskContainer = document.querySelector('#task-container-InProgress');
 const doneTaskContainer = document.querySelector('#task-container-Done');
@@ -36,7 +38,19 @@ done.tasks.forEach((task) => {
     doneTaskContainer.appendChild(card);
 });
 
+document.addEventListener('click', (e) => {
+    if(e.target.hasAttribute('data-id')) {
+        const cardId = e.target.dataset.id;
+        const card = KanbanAPI.getTask(Number(cardId));
+        const modal = createCardModal(card);
+        document.body.appendChild(modal);
+        console.log(card, cardId);
+    }
+});
 
+/* addTaskBtn.addEventListener('click', () => {
+
+}); */
 
 hideSidebar.addEventListener('click', () => {
     sidebar.classList.remove('md:w-[300px]');

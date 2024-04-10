@@ -560,12 +560,20 @@ video {
   position: static;
 }
 
+.fixed{
+  position: fixed;
+}
+
 .absolute{
   position: absolute;
 }
 
 .relative{
   position: relative;
+}
+
+.inset-0{
+  inset: 0px;
 }
 
 .bottom-\[1rem\]{
@@ -634,10 +642,6 @@ video {
 
 .w-\[90\%\]{
   width: 90%;
-}
-
-.w-0{
-  width: 0px;
 }
 
 .cursor-pointer{
@@ -745,6 +749,28 @@ video {
   background-color: rgb(99 95 199 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#8471F2\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(132 113 242 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#67E2AE\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(103 226 174 / var(--tw-bg-opacity));
+}
+
+.bg-\[rgba\(0\2c 0\2c 0\2c 0\.5\)\]{
+  background-color: rgba(0,0,0,0.5);
+}
+
+.bg-\[\]{
+  background-color: ;
+}
+
+.bg-\[bg-\[\#2B2C37\]\]{
+  background-color: bg-[#2B2C37];
+}
+
 .p-\[1\.4rem\]{
   padding: 1.4rem;
 }
@@ -780,6 +806,11 @@ video {
 .py-\[1rem\]{
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.px-\[\]{
+  padding-left: ;
+  padding-right: ;
 }
 
 .pl-\[1\.5rem\]{
@@ -852,18 +883,6 @@ video {
 
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.transition-\[margin\]{
-  transition-property: margin;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-\[width\]{
-  transition-property: width;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .transition-all{

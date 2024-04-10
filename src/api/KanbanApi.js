@@ -26,6 +26,18 @@ export default class KanbanAPI {
         save(board);
     }
 
+    //Get task by id
+    static getTask(taskId) {
+        const board = read();
+        for (const column of board) {
+            const item = column.tasks.find((item) => item.id === taskId);
+            console.log(item);
+            if (item) {
+                return item;
+            }
+        }
+    }
+
     //update task
     static updateTask(taskId, newContent) {
         const board = read();
