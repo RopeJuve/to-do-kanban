@@ -12,7 +12,7 @@ const navBar = document.querySelector('#nav-bar');
 
 
 
-//KanbanAPI.addSubtask(497761, { title: 'Outline a business model that works for our solution', isCompleted: true });
+//KanbanAPI.deleteTask(526303);
 const board = KanbanAPI.getBoard();
 console.log(board);
 
@@ -27,6 +27,7 @@ board.forEach((column) => {
 const todoTaskContainer = document.querySelector('#task-container-ToDo');
 const inProgressTaskContainer = document.querySelector('#task-container-InProgress');
 const doneTaskContainer = document.querySelector('#task-container-Done');
+
 todo.tasks.forEach((task) => {
     const card = createCard(task);
     todoTaskContainer.appendChild(card);

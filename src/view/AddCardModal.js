@@ -1,14 +1,17 @@
 import KanbanAPI from "../api/KanbanApi.js";
 
+
+
 export const createAddTaskModal = () => {
     let subTaskState = [];
-
     let state = {
         title: '',
         description: '',
         subTasks: subTaskState,
         status: ''
     }
+
+
     const cardAddTaskModal = document.createElement('div');
     cardAddTaskModal.id = 'add-task-modal';
     cardAddTaskModal.className = 'fixed inset-0 bg-[rgba(0,0,0,0.5)]  flex justify-center items-center';
