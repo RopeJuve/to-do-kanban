@@ -11,37 +11,44 @@ const addTaskBtn = document.querySelector('#add-task');
 const navBar = document.querySelector('#nav-bar');
 
 
-
-//KanbanAPI.deleteTask(526303);
+//KanbanAPI.updateTask(181272, {status: 'Done', position: 0});
 const board = KanbanAPI.getBoard();
 console.log(board);
 
 
 const [todo, inProgress, done] = board;
+const columnFragment = document.createDocumentFragment();
 
 board.forEach((column) => {
     const createdColumn = createColumn(column);
-    boardContainer.appendChild(createdColumn);
+    columnFragment.appendChild(createdColumn);
 }
 );
+boardContainer.appendChild(columnFragment);
 const todoTaskContainer = document.querySelector('#task-container-ToDo');
 const inProgressTaskContainer = document.querySelector('#task-container-InProgress');
 const doneTaskContainer = document.querySelector('#task-container-Done');
+const cardFragment = document.createDocumentFragment();
 
 todo.tasks.forEach((task) => {
     const card = createCard(task);
-    todoTaskContainer.appendChild(card);
+    cardFragment.appendChild(card);
 });
+todoTaskContainer.appendChild(cardFragment);
 
 inProgress.tasks.forEach((task) => {
     const card = createCard(task);
-    inProgressTaskContainer.appendChild(card);
+    cardFragment.appendChild(card);
 });
+
+inProgressTaskContainer.appendChild(cardFragment);
 
 done.tasks.forEach((task) => {
     const card = createCard(task);
-    doneTaskContainer.appendChild(card);
+    cardFragment.appendChild(card);
 });
+
+doneTaskContainer.appendChild(cardFragment);
 
 
 addTaskBtn.addEventListener('click', () => {

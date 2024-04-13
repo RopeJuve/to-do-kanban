@@ -11,7 +11,7 @@ export const createCard = (task) => {
     <h2 class="text-white font-[600] tracking-wide mb-[0.5rem] pointer-events-none">
         ${title}
     </h2>
-    <span class="text-white opacity-50 text-[0.875rem]"
+    <span class="text-white opacity-50 text-[0.875rem] pointer-events-none"
       >${completedSubTasks} of ${subTasks.length} subtasks</span
     >`;
   return card;
