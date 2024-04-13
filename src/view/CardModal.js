@@ -1,12 +1,14 @@
+
 export const createCardModal = ({ content, id }) => {
     const { title, description, status, subTasks } = content;
     const cardModal = document.createElement('div');
-    const completedSubTasks = subTasks.filter((subTask) => subTask.isCompleted).length;
+    const completedSubTasks = subTasks.filter((subTask) => subTask.content.isCompleted).length;
+
     cardModal.dataset.modalId = id;
     cardModal.className = 'fixed inset-0 bg-[rgba(0,0,0,0.5)]  flex justify-center items-center';
     cardModal.innerHTML = `
-    <div class='bg-[#2B2C37] p-[1.5rem] w-[343px] text-white rounded-lg flex flex-col gap-[1.5rem]'>
-        <div class='flex justify-between items-center'>
+    <div class='bg-[#2B2C37] p-[1.5rem] w-[343px] text-white rounded-lg flex flex-col gap-[1.5rem] md:w-[480px] md:p-[2rem]'>
+        <div class='flex justify-between items-center md:gap-[2rem]'>
              <h1 class='text-[1.325rem] font-semibold'>${title}</h1>
              <img
              class="cursor-pointer"
@@ -19,9 +21,9 @@ export const createCardModal = ({ content, id }) => {
            <h6 class='text-[0.875rem] font-semibold tracking-wide'>Subtasks (${completedSubTasks} of ${subTasks.length})</h6>
            <div class='flex flex-col gap-[0.5rem]'>
                 ${subTasks.map(subtask => (
-        `    <div class='flex items-center gap-[0.5rem] p-[0.875rem] bg-[#20212C] rounded-lg'>
-                        <input type='checkbox' ${subtask.isCompleted ? 'checked' : ''} />
-                        <p class='text-[0.875rem] tracking-wide ${subtask.isCompleted ? 'line-through opacity-50': '' }'>${subtask.title}</p>
+        `    <div class='flex items-center gap-[0.5rem] p-[0.875rem] bg-[#20212C] rounded-lg hover:bg-[#635FC7] hover:transition-all hover:duration-500'>
+                        <input type='checkbox' ${subtask.content.isCompleted ? 'checked' : ''}  />
+                        <p class='text-[0.875rem] tracking-wide ${subtask.content.isCompleted ? 'line-through opacity-50' : ''}'>${subtask.content.title}</p>
                     </div>`
     )).join('')}
            </div>

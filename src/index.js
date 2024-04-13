@@ -1,4 +1,5 @@
 import KanbanAPI from "./api/KanbanApi.js";
+import { createAddTaskModal } from "./view/AddCardModal.js";
 import { createCard } from "./view/Card.js"
 import { createCardModal } from "./view/CardModal.js";
 import { createColumn } from "./view/Column.js";
@@ -6,12 +7,15 @@ const sidebar = document.querySelector('#side-bar');
 const hideSidebar = document.querySelector('#hide-side-bar');
 const showSidebar = document.querySelector('#show-side-bar');
 const boardContainer = document.querySelector('#board-container');
-/* const addTaskBtn = document.querySelector('#add-task'); */
+const addTaskBtn = document.querySelector('#add-task');
 const navBar = document.querySelector('#nav-bar');
 
-//KanbanAPI.addSubtask(962229, { title: 'Subtask 2', isCompleted: true });
+
+
+//KanbanAPI.addSubtask(497761, { title: 'Outline a business model that works for our solution', isCompleted: true });
 const board = KanbanAPI.getBoard();
-console.log(board)
+console.log(board);
+
 
 const [todo, inProgress, done] = board;
 
@@ -38,19 +42,32 @@ done.tasks.forEach((task) => {
     doneTaskContainer.appendChild(card);
 });
 
+
+addTaskBtn.addEventListener('click', () => {
+    const cardAddTaskModal = createAddTaskModal();
+    document.body.appendChild(cardAddTaskModal);
+});
+
+
 document.addEventListener('click', (e) => {
     if (e.target.hasAttribute('data-id')) {
         const cardId = e.target.dataset.id;
         const card = KanbanAPI.getTask(Number(cardId));
         const modal = createCardModal(card);
         document.body.appendChild(modal);
-        console.log(card, cardId);
+    }
+    if (e.target.hasAttribute('data-modal-id')) {
+        const modalId = e.target.dataset.modalId;
+        const modal = document.querySelector(`[data-modal-id="${modalId}"]`);
+        modal.remove();
+    }
+
+    if (e.target.id === 'add-task-modal') {
+        e.target.remove();
     }
 });
 
-/* addTaskBtn.addEventListener('click', () => {
 
-}); */
 
 hideSidebar.addEventListener('click', () => {
     sidebar.classList.remove('md:w-[300px]');

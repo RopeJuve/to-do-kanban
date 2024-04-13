@@ -19,9 +19,10 @@ export default class KanbanAPI {
             id: Math.floor(Math.random() * 1000000),
             content: {
                 ...content,
-                status: columnName,
             }
         }
+
+        console.log(column, columnName)
         column.tasks.push(task);
         save(board);
     }
@@ -31,7 +32,6 @@ export default class KanbanAPI {
         const board = read();
         for (const column of board) {
             const item = column.tasks.find((item) => item.id === taskId);
-            console.log(item);
             if (item) {
                 return item;
             }
@@ -52,7 +52,7 @@ export default class KanbanAPI {
         })();
 
         item.content = newContent === undefined ? item.content : newContent;
-        console.log(item, column);
+        console.log('For moving item', item, column);
         save(board);
     }
 
@@ -75,11 +75,18 @@ export default class KanbanAPI {
         for (const column of board) {
             const item = column.tasks.find((item) => item.id === taskId);
             if (item) {
-                item.content.subTasks.push(subtask);
+                const task = {
+                    id: Math.floor(Math.random() * 1000000),
+                    content: subtask
+                }
+                item.content.subTasks.push(task);
             }
         }
         save(board);
     }
+
+    //update subtask
+
 
 }
 
