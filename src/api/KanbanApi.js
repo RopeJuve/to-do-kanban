@@ -69,6 +69,18 @@ export default class KanbanAPI {
         save(board);
     }
 
+    //add subtask
+    static addSubtask(taskId, subtask) {
+        const board = read();
+        for (const column of board) {
+            const item = column.tasks.find((item) => item.id === taskId);
+            if (item) {
+                item.content.subTasks.push(subtask);
+            }
+        }
+        save(board);
+    }
+
 }
 
 const read = () => JSON.parse(localStorage.getItem('board')) || [{

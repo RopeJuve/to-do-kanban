@@ -18,12 +18,12 @@ export const createCardModal = ({ content, id }) => {
         <div id='subtask-container' class='flex flex-col gap-[0.5rem]'>
            <h6 class='text-[0.875rem] font-semibold tracking-wide'>Subtasks (${completedSubTasks} of ${subTasks.length})</h6>
            <div class='flex flex-col gap-[0.5rem]'>
-                ${subTasks.map(subtask =>(
-                `    <div class='flex items-center gap-[0.5rem] p-[0.875rem] bg-[#20212C] rounded-lg'>
-                        <input type='checkbox' ${subtask.isCompleted} ? 'checked' : ''/>
-                        <p class='text-[0.875rem] tracking-wide'>${subtask.title}</p>
+                ${subTasks.map(subtask => (
+        `    <div class='flex items-center gap-[0.5rem] p-[0.875rem] bg-[#20212C] rounded-lg'>
+                        <input type='checkbox' ${subtask.isCompleted ? 'checked' : ''} />
+                        <p class='text-[0.875rem] tracking-wide ${subtask.isCompleted ? 'line-through opacity-50': '' }'>${subtask.title}</p>
                     </div>`
-                ))}
+    )).join('')}
            </div>
         </div>
         <div class='flex flex-col gap-[0.5rem]'>

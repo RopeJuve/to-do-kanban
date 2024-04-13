@@ -9,7 +9,7 @@ const boardContainer = document.querySelector('#board-container');
 /* const addTaskBtn = document.querySelector('#add-task'); */
 const navBar = document.querySelector('#nav-bar');
 
-//KanbanAPI.addTaskToColumn('ToDo', { title: 'Create a new task', description: "We know what we're planning to build for version one.Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.", subTasks: [{ title: 'Create a new task', isCompleted: false }] });
+//KanbanAPI.addSubtask(962229, { title: 'Subtask 2', isCompleted: true });
 const board = KanbanAPI.getBoard();
 console.log(board)
 
