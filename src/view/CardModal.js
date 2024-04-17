@@ -1,10 +1,10 @@
 import KanbanAPI from "../api/KanbanApi.js";
 const createMenu = (id) => {
     const menu = document.createElement('div');
-    menu.className = 'absolute z-[10] top-[2rem] right-[-1rem] bg-[#2B2C37] p-[1rem] rounded-lg flex flex-col gap-[0.5rem]';
+    menu.className = 'absolute z-[10] top-[2rem] w-[192px] right-[-1rem] bg-[#20212C] p-[1rem] rounded-lg flex flex-col text-left gap-[0.5rem]';
     menu.innerHTML = `
-    <button class='text-white hover:text-[#635FC7] hover:transition-all hover:duration-500'>Edit</button>
-    <button id='delete-task' class='text-white hover:text-[#635FC7] hover:transition-all hover:duration-500'>Delete</button>
+    <button class='text-white text-left hover:text-[#635FC7] hover:transition-all hover:duration-500'>Edit Task</button>
+    <button id='delete-task' class='text-[#EA5555] text-left hover:text-white hover:transition-all hover:duration-500'>Delete Task</button>
     `
     const deleteTask = menu.querySelector('#delete-task');
     deleteTask.addEventListener('click', () => {
@@ -25,7 +25,7 @@ export const createCardModal = ({ content, id }) => {
     <div class='bg-[#2B2C37] p-[1.5rem] w-[343px] text-white rounded-lg flex flex-col gap-[1.5rem] md:w-[480px] md:p-[2rem]'>
         <div class=' flex justify-between items-center md:gap-[2rem]'>
              <h1 class='text-[1.325rem] font-semibold'>${title}</h1>
-            <div class='header-container h-[100%] w-[20px] '>
+            <div class='header-container relative h-[100%] w-[20px] '>
             <img
                 class="cursor-pointer menu relative"
                 src="../assets/icon-vertical-ellipsis.svg"
