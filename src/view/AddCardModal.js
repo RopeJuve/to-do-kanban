@@ -11,7 +11,7 @@ const createSubtaskInput = () => {
     const subtaskContainer = document.createElement('div');
     subtaskContainer.className = 'flex items-center gap-[1rem]';
     subtaskContainer.innerHTML = `
-    <input type='text' class='input-subtask py-[0.5rem] px-[1rem] grow rounded-lg bg-transparent outline-none text-white placeholder:text-[rgb(130,143,163,25%)] border border-[rgb(130,143,163,25%)]' placeholder='e.g. Take coffee break'/>
+    <input type='text' class='input-subtask py-[0.5rem] px-[1rem] hover:border-[#635FC7] transition-all grow rounded-lg bg-transparent outline-none text-white placeholder:text-[rgb(130,143,163,25%)] border border-[rgb(130,143,163,25%)]' placeholder='e.g. Take coffee break'/>
     <button class='remove-subtask'>
         <img src="../assets/icon-cross.svg" alt="cross" />
     </button>    
@@ -41,14 +41,6 @@ const createSubtaskInput = () => {
 
 
 export const createAddTaskModal = () => {
-    /*     let subTaskState = [];
-        let state = {
-            title: '',
-            description: '',
-            subTasks: subTaskState,
-            status: ''
-        } */
-
 
     const cardAddTaskModal = document.createElement('div');
     cardAddTaskModal.id = 'add-task-modal';
@@ -58,11 +50,11 @@ export const createAddTaskModal = () => {
     <h1 class='text-[1.325rem] font-semibold'>Add New Task</h1>
         <div class='flex flex-col gap-[0.5rem]'>
             <h6 class='text-[0.875rem] font-semibold tracking-wide'>Title</h6>
-            <input id='input-title' type='text' class='py-[0.5rem] px-[1rem]  rounded-lg bg-transparent outline-none text-white placeholder:text-[rgb(130,143,163,25%)] border border-[rgb(130,143,163,25%)]' placeholder='e.g. Take coffee break'/>
+            <input id='input-title' type='text' class='py-[0.5rem] px-[1rem] hover:border-[#635FC7] transition-all duration-500 rounded-lg bg-transparent outline-none text-white placeholder:text-[rgb(130,143,163,25%)] border border-[rgb(130,143,163,25%)]' placeholder='e.g. Take coffee break'/>
         </div>
         <div class='flex flex-col gap-[0.5rem]'>
             <h6 class='text-[0.875rem] font-semibold tracking-wide'>Description</h6>
-            <textarea id='description'  class='py-[0.5rem] px-[1rem] resize-none rounded-lg bg-transparent outline-none text-white placeholder:text-[rgb(130,143,163,25%)] border border-[rgb(130,143,163,25%)]' placeholder="e.g. It’s always good to take a break. This 15 minute break will  recharge the batteries a little." rows="4"></textarea>
+            <textarea id='description'  class='py-[0.5rem] px-[1rem] hover:border-[#635FC7] transition-all resize-none rounded-lg bg-transparent outline-none text-white placeholder:text-[rgb(130,143,163,25%)] border border-[rgb(130,143,163,25%)]' placeholder="e.g. It’s always good to take a break. This 15 minute break will  recharge the batteries a little." rows="4"></textarea>
         </div>
         <div class='subtasks flex flex-col gap-[0.5rem]'>
             <h6 class='text-[0.875rem] font-semibold tracking-wide'>Subtasks</h6>
@@ -70,13 +62,17 @@ export const createAddTaskModal = () => {
         </div>
         <div class='flex flex-col gap-[0.5rem]'>
             <h6 class='text-[0.875rem] font-semibold tracking-wide'>Status</h6>
-            <input id='status' type='text' class='py-[0.5rem] px-[1rem]  rounded-lg bg-transparent outline-none text-white placeholder:text-[rgb(130,143,163,25%)] border border-[rgb(130,143,163,25%)]' placeholder='e.g. ToDo'/>
+            <select id='status' type='text' class='py-[0.5rem] px-[1rem] rounded-lg bg-[#2B2C37] outline-none text-white  border border-[rgb(130,143,163,25%)] focus:border-[#635FC7]'>
+                <option value='ToDo'>ToDo</option>
+                <option value='InProgress'>InProgress</option>
+                <option value='Done'>Done</option>
+            </select>
         </div>
         <button id='create-new-task' class='py-[0.5rem] px-[1rem] bg-[#635FC7] rounded-3xl text-white font-semibold'>Create Task</button>
     </div>`
     const inputTitle = cardAddTaskModal.querySelector('#input-title');
     const inputDescription = cardAddTaskModal.querySelector('#description');
-    const inputStatus = cardAddTaskModal.querySelector('#status');
+    const selectStatus = cardAddTaskModal.querySelector('#status');
 
     const createNewTask = cardAddTaskModal.querySelector('#create-new-task');
     const subtaskContainer = cardAddTaskModal.querySelector('.subtasks');
@@ -107,7 +103,7 @@ export const createAddTaskModal = () => {
         console.log(state)
     }
 
-    inputStatus.onchange = (e) => {
+    selectStatus.onchange = (e) => {
         state = {
             ...state,
             status: e.target.value

@@ -39,7 +39,7 @@ export const createCardModal = ({ content, id }) => {
            <div class='flex flex-col gap-[0.5rem]'>
                 ${subTasks.map(subtask => (
         `    <div class='flex items-center gap-[0.5rem] p-[0.875rem] bg-[#20212C] rounded-lg hover:bg-[#635FC7] hover:transition-all hover:duration-500'>
-                        <input id=${subtask.id} class='checkbox' type='checkbox' ${subtask.content.isCompleted ? 'checked' : ''}  />
+                        <input id=${subtask.id} class='checkbox form-checkbox border border-[rgb(130, 143, 163, 24.89%)] bg-[#2B2C37] rounded-sm text-[#635FC7]' type='checkbox' ${subtask.content.isCompleted ? 'checked' : ''}  />
                         <p class='text-[0.875rem] tracking-wide ${subtask.content.isCompleted ? 'line-through opacity-50' : ''}'>${subtask.content.title}</p>
                     </div>`
     )).join('')}
@@ -47,7 +47,7 @@ export const createCardModal = ({ content, id }) => {
         </div>
         <div class='flex flex-col gap-[0.5rem]'>
             <h6 class='text-[0.875rem] font-semibold tracking-wide'>Current Status</h6>
-            <p class='p-[0.5rem] border border-[rgb(130,143,163,25%)] rounded-lg'>${status}</p>
+            <p class='p-[0.5rem] border border-[#828FA3] rounded-lg'>${status}</p>
         </div>
     </div>
     `
