@@ -55,9 +55,9 @@ export default class KanbanAPI {
         console.log('For moving item', item, column);
         //move item to another column
         if (newContent.status !== undefined
-			&& newContent.position !== undefined) {
+            && newContent.position !== undefined) {
             const newColumn = board.find((column) => column.name === newContent.status);
-           
+
             column.tasks.splice(column.tasks.indexOf(item), 1);
 
             newColumn.tasks.splice(newContent.position, 0, item);

@@ -73,6 +73,9 @@ document.addEventListener('click', (e) => {
     if (e.target.id === 'add-task-modal') {
         e.target.remove();
     }
+    if (e.target.id === 'edit-card-modal') {
+        e.target.remove();
+    }
 });
 
 

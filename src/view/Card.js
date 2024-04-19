@@ -16,12 +16,12 @@ export const createCard = (task) => {
       >${completedSubTasks} of ${subTasks.length} subtasks</span
     >`;
 
-    card.addEventListener("dragstart", (e) => {
-      e.dataTransfer.setData("text/plain", id);
-      console.log("dragstart", id);
-    });
-    card.addEventListener("dragend", (e) => {
-      console.log("dragend", id);
-    });
+  card.addEventListener("dragstart", (e) => {
+    e.dataTransfer.setData("text/plain", id);
+    console.log("dragstart", id);
+  });
+  card.addEventListener("dragend", (e) => {
+    console.log("dragend", id);
+  });
   return card;
 }

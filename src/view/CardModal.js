@@ -1,16 +1,26 @@
 import KanbanAPI from "../api/KanbanApi.js";
+import { createEditCardModal } from "./EditCardModal.js";
 const createMenu = (id) => {
     const menu = document.createElement('div');
     menu.className = 'absolute z-[10] top-[2rem] w-[192px] right-[-1rem] bg-[#20212C] p-[1rem] rounded-lg flex flex-col text-left gap-[0.5rem]';
     menu.innerHTML = `
-    <button class='text-white text-left hover:text-[#635FC7] hover:transition-all hover:duration-500'>Edit Task</button>
+    <button id='edit-task' class='text-white text-left hover:text-[#635FC7] hover:transition-all hover:duration-500'>Edit Task</button>
     <button id='delete-task' class='text-[#EA5555] text-left hover:text-white hover:transition-all hover:duration-500'>Delete Task</button>
     `
     const deleteTask = menu.querySelector('#delete-task');
+    const editTask = menu.querySelector('#edit-task');
+
     deleteTask.addEventListener('click', () => {
         KanbanAPI.deleteTask(id);
         window.location.reload();
-    })
+    });
+    editTask.addEventListener('click', () => {
+        const card = KanbanAPI.getTask(id);
+        const editModal = createEditCardModal(card);
+        document.body.appendChild(editModal);
+        document.querySelector('#card-modal').remove();
+
+    });
     return menu;
 
 }
@@ -18,7 +28,7 @@ export const createCardModal = ({ content, id }) => {
     const { title, description, status, subTasks } = content;
     const cardModal = document.createElement('div');
     const completedSubTasks = subTasks.filter((subTask) => subTask.content.isCompleted).length;
-
+    cardModal.id = 'card-modal';
     cardModal.dataset.modalId = id;
     cardModal.className = 'fixed inset-0 bg-[rgba(0,0,0,0.5)]  flex justify-center items-center';
     cardModal.innerHTML = `
