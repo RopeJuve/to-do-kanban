@@ -10,7 +10,7 @@ export const createCard = (task) => {
   card.id = id
   card.draggable = true;
   card.innerHTML = `
-  <div data-id='${id}' class='card px-[1rem] py-[1.5rem] bg-[#2B2C37] rounded-[0.5rem] cursor-pointer hover:bg-[#3A3B4A] transition-all duration-300 ease-in-out'>
+  <div data-id='${id}' class='card px-[1rem] py-[1.5rem] cursor-grab bg-[#2B2C37] rounded-[0.5rem] hover:bg-[#3A3B4A] transition-all duration-300 ease-in-out'>
     <h2 class="text-white font-[600] tracking-wide mb-[0.5rem] pointer-events-none">
         ${title}
     </h2>

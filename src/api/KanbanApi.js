@@ -77,6 +77,20 @@ export default class KanbanAPI {
         }
         save(board);
     }
+    //update subtask
+    static updateSubtask(taskId, subtaskId, newContent) {
+        const board = read();
+        for (const column of board) {
+            const item = column.tasks.find((item) => item.id === taskId);
+            if (item) {
+                const subtask = item.content.subTasks.find((subtask) => subtask.id === subtaskId);
+                if (subtask) {
+                    subtask.content.isCompleted = newContent;
+                }
+            }
+        }
+        save(board);
+    }
 
 }
 

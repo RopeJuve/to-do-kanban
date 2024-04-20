@@ -81,6 +81,5 @@ export const createCardModal = ({ content, id }) => {
             window.location.reload();
         }
     });
-
     return cardModal;
 }; 

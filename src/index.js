@@ -1,15 +1,17 @@
 import KanbanAPI from "./api/KanbanApi.js";
 import { createAddTaskModal } from "./view/AddCardModal.js";
-import { createCard } from "./view/Card.js"
+import { createCard } from "./view/Card.js";
 import { createCardModal } from "./view/CardModal.js";
 import { createColumn } from "./view/Column.js";
 
 const sidebar = document.querySelector('#side-bar');
 const hideSidebar = document.querySelector('#hide-side-bar');
 const showSidebar = document.querySelector('#show-side-bar');
-const boardContainer = document.querySelector('#board-container');
 const addTaskBtn = document.querySelector('#add-task');
 const navBar = document.querySelector('#nav-bar');
+const boardContainer = document.querySelector('#board-container');
+
+
 
 const board = KanbanAPI.getBoard();
 

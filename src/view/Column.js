@@ -22,3 +22,4 @@ export const createColumn = ({ name, tasks }) => {
     column.appendChild(topDropZone);
     return columnElement;
 }
+
