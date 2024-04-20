@@ -57,7 +57,7 @@ export default class KanbanAPI {
         if (newContent.status !== undefined
             && newContent.position !== undefined) {
             const newColumn = board.find((column) => column.name === newContent.status);
-
+            console.log('New column', newContent.status);
             column.tasks.splice(column.tasks.indexOf(item), 1);
 
             newColumn.tasks.splice(newContent.position, 0, item);
@@ -77,38 +77,6 @@ export default class KanbanAPI {
         }
         save(board);
     }
-
-    //add subtask
-    static addSubtask(taskId, subtask) {
-        const board = read();
-        for (const column of board) {
-            const item = column.tasks.find((item) => item.id === taskId);
-            if (item) {
-                const task = {
-                    id: Math.floor(Math.random() * 1000000),
-                    content: subtask
-                }
-                item.content.subTasks.push(task);
-            }
-        }
-        save(board);
-    }
-
-    //update subtask
-    static updateSubtask(taskId, subtaskId, newContent) {
-        const board = read();
-        for (const column of board) {
-            const item = column.tasks.find((item) => item.id === taskId);
-            if (item) {
-                const subtask = item.content.subTasks.find((subtask) => subtask.id === subtaskId);
-                if (subtask) {
-                    subtask.content.isCompleted = newContent;
-                }
-            }
-        }
-        save(board);
-    }
-
 
 }
 

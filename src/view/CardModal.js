@@ -1,6 +1,8 @@
 import KanbanAPI from "../api/KanbanApi.js";
 import { createEditCardModal } from "./EditCardModal.js";
+
 const createMenu = (id) => {
+
     const menu = document.createElement('div');
     menu.className = 'absolute z-[10] top-[2rem] w-[192px] right-[-1rem] bg-[#20212C] p-[1rem] rounded-lg flex flex-col text-left gap-[0.5rem]';
     menu.innerHTML = `
@@ -24,6 +26,8 @@ const createMenu = (id) => {
     return menu;
 
 }
+
+
 export const createCardModal = ({ content, id }) => {
     const { title, description, status, subTasks } = content;
     const cardModal = document.createElement('div');

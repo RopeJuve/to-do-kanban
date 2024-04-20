@@ -7,6 +7,7 @@ let state = {
     subTasks: subTaskState,
     status: ''
 }
+
 const createSubtaskInput = () => {
     const subtaskContainer = document.createElement('div');
     subtaskContainer.className = 'flex items-center gap-[1rem]';
@@ -39,7 +40,6 @@ const createSubtaskInput = () => {
     return subtaskContainer;
 };
 
-
 export const createAddTaskModal = () => {
 
     const cardAddTaskModal = document.createElement('div');
@@ -63,6 +63,7 @@ export const createAddTaskModal = () => {
         <div class='flex flex-col gap-[0.5rem]'>
             <h6 class='text-[0.875rem] font-semibold tracking-wide'>Status</h6>
             <select id='status' type='text' class='py-[0.5rem] px-[1rem] rounded-lg bg-[#2B2C37] outline-none text-white  border border-[rgb(130,143,163,25%)] focus:border-[#635FC7]'>
+            <option selected value='${state.status}'>${state.status}</option>
                 <option value='ToDo'>ToDo</option>
                 <option value='InProgress'>InProgress</option>
                 <option value='Done'>Done</option>

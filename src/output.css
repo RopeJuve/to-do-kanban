@@ -646,6 +646,10 @@ video {
   z-index: 10;
 }
 
+.m-\[0\.5rem\]{
+  margin: 0.5rem;
+}
+
 .mb-\[0\.5rem\]{
   margin-bottom: 0.5rem;
 }
@@ -666,6 +670,10 @@ video {
   display: none;
 }
 
+.h-\[1\.5rem\]{
+  height: 1.5rem;
+}
+
 .h-\[100\%\]{
   height: 100%;
 }
@@ -680,6 +688,10 @@ video {
 
 .h-\[2rem\]{
   height: 2rem;
+}
+
+.h-\[4rem\]{
+  height: 4rem;
 }
 
 .h-\[90\%\]{
@@ -720,6 +732,16 @@ video {
 
 .grow{
   flex-grow: 1;
+}
+
+@keyframes pulse{
+  50%{
+    opacity: .5;
+  }
+}
+
+.animate-pulse{
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .cursor-pointer{
@@ -768,10 +790,6 @@ video {
 
 .gap-\[1\.187rem\]{
   gap: 1.187rem;
-}
-
-.gap-\[1\.25rem\]{
-  gap: 1.25rem;
 }
 
 .gap-\[1\.5rem\]{
@@ -829,6 +847,19 @@ video {
 
 .border{
   border-width: 1px;
+}
+
+.border-\[2px\]{
+  border-width: 2px;
+}
+
+.border-dashed{
+  border-style: dashed;
+}
+
+.border-\[\#635FC7\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(99 95 199 / var(--tw-border-opacity));
 }
 
 .border-\[\#828FA3\]{
@@ -1055,6 +1086,12 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-\[height\]{
+  transition-property: height;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }

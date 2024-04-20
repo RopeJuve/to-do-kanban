@@ -3,6 +3,7 @@ import { createAddTaskModal } from "./view/AddCardModal.js";
 import { createCard } from "./view/Card.js"
 import { createCardModal } from "./view/CardModal.js";
 import { createColumn } from "./view/Column.js";
+
 const sidebar = document.querySelector('#side-bar');
 const hideSidebar = document.querySelector('#hide-side-bar');
 const showSidebar = document.querySelector('#show-side-bar');
@@ -10,11 +11,7 @@ const boardContainer = document.querySelector('#board-container');
 const addTaskBtn = document.querySelector('#add-task');
 const navBar = document.querySelector('#nav-bar');
 
-
-//KanbanAPI.updateTask(181272, {status: 'Done', position: 0});
 const board = KanbanAPI.getBoard();
-console.log(board);
-
 
 const [todo, inProgress, done] = board;
 const columnFragment = document.createDocumentFragment();
@@ -24,32 +21,29 @@ board.forEach((column) => {
     columnFragment.appendChild(createdColumn);
 }
 );
+
 boardContainer.appendChild(columnFragment);
-const todoTaskContainer = document.querySelector('#task-container-ToDo');
-const inProgressTaskContainer = document.querySelector('#task-container-InProgress');
-const doneTaskContainer = document.querySelector('#task-container-Done');
-const cardFragment = document.createDocumentFragment();
+
+
+const todoTaskContainer = document.querySelector('#ToDo');
+const inProgressTaskContainer = document.querySelector('#InProgress');
+const doneTaskContainer = document.querySelector('#Done');
 
 todo.tasks.forEach((task) => {
     const card = createCard(task);
-    cardFragment.appendChild(card);
+    todoTaskContainer.appendChild(card);
 });
-todoTaskContainer.appendChild(cardFragment);
+
 
 inProgress.tasks.forEach((task) => {
     const card = createCard(task);
-    cardFragment.appendChild(card);
+    inProgressTaskContainer.appendChild(card);
 });
-
-inProgressTaskContainer.appendChild(cardFragment);
 
 done.tasks.forEach((task) => {
     const card = createCard(task);
-    cardFragment.appendChild(card);
+    doneTaskContainer.appendChild(card);
 });
-
-doneTaskContainer.appendChild(cardFragment);
-
 
 addTaskBtn.addEventListener('click', () => {
     const cardAddTaskModal = createAddTaskModal();

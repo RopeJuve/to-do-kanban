@@ -1,6 +1,7 @@
 import KanbanAPI from "../api/KanbanApi.js";
 
 const createSubtask = ({ content }, index, subtasks) => {
+
     const { title } = content;
     const subtaskContainer = document.createElement('div');
     subtaskContainer.className = `flex items-center gap-[0.5rem] rounded-lg`;
@@ -35,6 +36,7 @@ const createSubtask = ({ content }, index, subtasks) => {
     });
     return subtaskContainer;
 };
+
 export const createEditCardModal = ({ content, id }) => {
     console.log(content);
     const editCardModal = document.createElement('div');
